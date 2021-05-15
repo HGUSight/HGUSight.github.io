@@ -1,0 +1,1330 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="HGUSight">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+    
+    
+      
+        <title>OPAL - HGUSight</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/gradient-dark.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="light-blue" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#opal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HGUSight" class="md-header__button md-logo" aria-label="HGUSight" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HGUSight
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OPAL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/HGUSight/HGUSight.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HGUSight
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HGUSight" class="md-nav__button md-logo" aria-label="HGUSight" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.png" alt="logo">
+
+    </a>
+    HGUSight
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/HGUSight/HGUSight.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HGUSight
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        프로젝트팀
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="프로젝트팀" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          프로젝트팀
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thelight/" class="md-nav__link">
+        TheLight
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../goodjob/" class="md-nav__link">
+        GoodJob
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          OPAL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        OPAL
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opal" class="md-nav__link">
+    OPAL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    개요
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. 문제 상황 분석
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. 프로젝트 주제 선정
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gant-chart" class="md-nav__link">
+    3. Gant Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4. 브레인스토밍 및 구현할 기능 정리
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 브레인스토밍 및 구현할 기능 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    피그마 시연
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpsgithubcomjoowhanopal" class="md-nav__link">
+    소스코드 : https://github.com/joowhan/OPAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1. 시작 화면
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2. 추천 운동
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 내 운동
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    4. 프로필
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    5. 실제 구현된 화면
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../markmakers/" class="md-nav__link">
+        MarkMaker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vivid/" class="md-nav__link">
+        Vivid
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        리크루팅
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="리크루팅" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          리크루팅
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../recruit/poster/" class="md-nav__link">
+        시선 포스터
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        방학합숙 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="방학합숙 스터디" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          방학합숙 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        앱개발 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="앱개발 스터디" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          앱개발 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/app/android/" class="md-nav__link">
+        안스_서버통신
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/app/db/" class="md-nav__link">
+        디비_구축
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/app/flask/" class="md-nav__link">
+        플라스크서버
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/app/aws/" class="md-nav__link">
+        AWS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/app/frontend/" class="md-nav__link">
+        Frontend
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/app/backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/app/git/" class="md-nav__link">
+        Git 협업
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/app/debug/" class="md-nav__link">
+        디버깅
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        깃허브 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="깃허브 스터디" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          깃허브 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/github/git1/" class="md-nav__link">
+        Git 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/github/git2/" class="md-nav__link">
+        Git 2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/github/git3/" class="md-nav__link">
+        Git 3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/github/git4/" class="md-nav__link">
+        Git 4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/github/git5/" class="md-nav__link">
+        Git 5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/github/git6/" class="md-nav__link">
+        Git 6
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/github/git7/" class="md-nav__link">
+        Git 7
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        알고리즘 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="알고리즘 스터디" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          알고리즘 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/algorithm/day1/" class="md-nav__link">
+        Day1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/algorithm/day2/" class="md-nav__link">
+        Day2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/algorithm/day3/" class="md-nav__link">
+        Day3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/algorithm/day4/" class="md-nav__link">
+        Day4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/algorithm/day5/" class="md-nav__link">
+        Day5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/algorithm/day6/" class="md-nav__link">
+        Day6
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/algorithm/day7/" class="md-nav__link">
+        Day7
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../study/algorithm/day8/" class="md-nav__link">
+        Day8
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        시선자료
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="시선자료" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          시선자료
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/rule/" class="md-nav__link">
+        시선회칙
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        문서 작성 법
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="문서 작성 법" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          문서 작성 법
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../write/markdown/" class="md-nav__link">
+        파일적는 방법
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../write/baseof/" class="md-nav__link">
+        Markdown base
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#opal" class="md-nav__link">
+    OPAL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    개요
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1. 문제 상황 분석
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2. 프로젝트 주제 선정
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gant-chart" class="md-nav__link">
+    3. Gant Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4. 브레인스토밍 및 구현할 기능 정리
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 브레인스토밍 및 구현할 기능 정리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    피그마 시연
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpsgithubcomjoowhanopal" class="md-nav__link">
+    소스코드 : https://github.com/joowhan/OPAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1. 시작 화면
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    2. 추천 운동
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 내 운동
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_2" class="md-nav__link">
+    4. 프로필
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5_1" class="md-nav__link">
+    5. 실제 구현된 화면
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/HGUSight/HGUSight.github.io/edit/master/docs/project/opal.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>OPAL</h1>
+                
+                <h2 id="opal">OPAL<a class="headerlink" href="#opal" title="Permanent link">&para;</a></h2>
+<p>장애인 &amp; 노인 홈 트레이닝 어플</p>
+<h2 id="_1">개요<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<blockquote>
+<h4 id="1">1. 문제 상황 인식<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<h4 id="2">2. 프로젝트 주제 선정<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<h4 id="3-tool">3. 간트차트 작성 및 사용할 tool 선정<a class="headerlink" href="#3-tool" title="Permanent link">&para;</a></h4>
+<h4 id="4">4. 브레인스토밍 및 구현할 기능 정리<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<h4 id="5">5. 유사 서비스 벤치마킹<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<h4 id="6-flutter">6. flutter 스터디<a class="headerlink" href="#6-flutter" title="Permanent link">&para;</a></h4>
+<h4 id="7">7. 기능 구현(소스코드, 프로필, 운동 카테고리, 워크 아웃, 이력)<a class="headerlink" href="#7" title="Permanent link">&para;</a></h4>
+<h4 id="8">8. 기능별 단위 테스트(기능별)<a class="headerlink" href="#8" title="Permanent link">&para;</a></h4>
+<h4 id="9-3">9. 3자테스트 &amp; 피드백<a class="headerlink" href="#9-3" title="Permanent link">&para;</a></h4>
+<h4 id="10">10. 디버깅 &amp; 테스트<a class="headerlink" href="#10" title="Permanent link">&para;</a></h4>
+<h4 id="11">11.플레이스토어 등록<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+</blockquote>
+<h2 id="1_1">1. 문제 상황 분석<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<h5 id="80-5-1">80세 이상 노인 5명 중 1명이 '불면증'<a class="headerlink" href="#80-5-1" title="Permanent link">&para;</a></h5>
+<p><img alt="image" src="https://user-images.githubusercontent.com/70834005/106226266-268f3500-622a-11eb-93d3-a162d7e648d8.png" /></p>
+<ul>
+<li>나이가 들면서 젊은 사람에 비해 신체활동이 급격히 줄어들고 소화기나 호흡기, 근골격계 기능이 저하되어 노인 불증을 일으키는 원인으로 판단된다.</li>
+</ul>
+<h5 id="17">부산서 노인관련 시설 등 신규 확진자 17명 발생<a class="headerlink" href="#17" title="Permanent link">&para;</a></h5>
+<p><img alt="image" src="https://user-images.githubusercontent.com/70834005/106226691-19267a80-622b-11eb-9fdc-84cd436099c7.png" />
++ 부산에서는 노인 관련 센터와 확진자의 가족 등 신규 확진자가 17명 발생해 이틀 연속 10명 확진자가 나왔다. 앞으로 노인관련 시설이 등이 더욱 폐쇄 될 것이고 집에서 혼자 격리를 해야하는 노인들이 증가하여 문제를 제기하고 있다.</p>
+<h5 id="_2">스포츠심리학 : 노인의 규칙적인 운동이 인지능력 및 자아존중감에 미치는 영향<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>노인의 규칙적인 운동은 좋은 영향을 미친다. </li>
+<li>
+<ol>
+<li>첫째, 성별, 지속적인 운동(사전, 사후) 수행에 따른 기억력, 문제해결력 및 추론력에서 남, 녀 모두 운동수행 전보다 운동수행 후에 높게 나타났다. </li>
+</ol>
+</li>
+<li>
+<ol>
+<li>둘째, 연령, 지속적인 운동(사전, 사후) 수행에 따른 기억력, 문제 해결력 및 추론력에서도 남, 녀 모두 운동수행 전보다 운동수행 후에 높게 나타났다. </li>
+</ol>
+</li>
+<li>
+<ol>
+<li>셋째, 성별, 지속적인 운동(사전, 사후) 수행에 따른 자아존중감에서 남, 녀 모두 운동수행 전보다 운동수행 후에 높게 나타났다. </li>
+</ol>
+</li>
+<li>
+<ol>
+<li>넷째, 연령, 지속적인 운동(사전, 사후) 수행에 따른 자아존중감에서도 남, 녀 모두 운동수행 전보다 운동수행 후에 높게 나타났다.</li>
+</ol>
+</li>
+</ul>
+<h5 id="_3">코호트격리는 장애인에게 재앙...긴급 분산조치 시행해야<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<p><img alt="image" src="https://user-images.githubusercontent.com/70834005/106227248-3871d780-622c-11eb-89e6-1ac78b1df559.png" />
++ 장애인단체는 “확진자뿐 아니라 비확진자에 대해서도 임시 거주공간을 제공하고 거리두기가 1단계로 내려갈 때까지 장애인 거주시설에 집합금지명령 수준의 지침을 내려야 한다”고 말한다. “코로나19 국면이 장기화되고 있는 만큼 대규모 집단감염을 일으키는 장애인 거주시설에 대해 근본적 대책을 마련해야 한다”는 지적이다. </p>
+<h2 id="2_1">2. 프로젝트 주제 선정<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h2>
+<p>COVID-19가 점점 심각해짐에 따라,  노인과 장애인이 사회적으로 고립되고 있다. 이에 점점 노인과 장애인의 우울증이 증가하고 있는 추세이다. 고려대 안암병원 정신건강의학과 한규만 교수팀의 연구 결과에 따르면, 사회활동의 종류가 많고 참여 빈도가 높을수록 우울증의 위험이 낮아진다고 한다. 또한 장애인의 신체적 불편함과 이로 인한 심리적 위축감을 극복하는데 스포츠와 같이 적극적인 여가활동이 긍정적 영향을 가져다주는 것으로 나타났다. 코로나로 인해 밖에서 활동이 어려운 요즘, 노인과 장애인을 대상으로, 집에서 할 수 있는 운동을 도와주는 홈 트레이닝 어플을 제작하게 되었다. </p>
+<blockquote>
+<p>장애인 &amp; 노인 홈 트레이닝 어플</p>
+</blockquote>
+<h2 id="3-gant-chart">3. Gant Chart<a class="headerlink" href="#3-gant-chart" title="Permanent link">&para;</a></h2>
+<p><img width="100%" alt="gant" src="https://user-images.githubusercontent.com/63829204/106249204-64558300-6255-11eb-9d09-c62612399f86.png"></p>
+<h2 id="4_1">4. 브레인스토밍 및 구현할 기능 정리<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h2>
+<p><img width="100%" alt="스크린샷 2021-01-29 오후 5 30 00" src="https://user-images.githubusercontent.com/63829204/106250994-c44d2900-6257-11eb-978b-c47ba88c797b.png">
+<img width="100%" alt="KakaoTalk_Photo_2021-01-29-17-31-18" src="https://user-images.githubusercontent.com/63829204/106251033-d4650880-6257-11eb-8ed7-450eb80ed1de.png"></p>
+<h3 id="_4"><a href="https://www.figma.com/proto/cxwHwQN9QxcKpV7QEOjmU9/OPAL?node-id=7%3A17&amp;scaling=scale-down">피그마 시연</a><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>OPAL의 UI를 구현하기 위해 피그마 툴을 사용하였다.</p>
+<h3 id="httpsgithubcomjoowhanopal">소스코드 : <a href="https://github.com/joowhan/OPAL">https://github.com/joowhan/OPAL</a><a class="headerlink" href="#httpsgithubcomjoowhanopal" title="Permanent link">&para;</a></h3>
+<h3 id="1_2">1. 시작 화면<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p><img width="25%" alt="스크린샷 2021-01-29 오후 2 55 16" src="https://user-images.githubusercontent.com/63829204/106237357-010e2580-6242-11eb-8953-24513a9501d0.png"></p>
+<ul>
+<li>유산소, 근력, 유연성운동중 하나를 선택해서 운동을 할 수 있는 '추천 운동'과 운동을 직접 골라담에 할 수 있는 '내 운동' 중에 하나를 고를 수 있도록 하였다.</li>
+</ul>
+<h3 id="2_2">2. 추천 운동<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<p><img width="24.2%" alt="스크린샷 2021-01-29 오후 3 02 06" src="https://user-images.githubusercontent.com/63829204/106237824-f607c500-6242-11eb-9271-b6d14743c3e2.png">
+<img width="24.15%" alt="스크린샷 2021-01-29 오후 3 06 20" src="https://user-images.githubusercontent.com/63829204/106238080-8cd48180-6243-11eb-9d3c-79ecf7850e7e.png">
+<img width="24.3%" alt="스크린샷 2021-01-29 오후 3 12 06" src="https://user-images.githubusercontent.com/63829204/106238531-5ba88100-6244-11eb-9d23-65cb417a4b6d.png">
+<img width="24%" alt="스크린샷 2021-01-29 오후 3 13 29" src="https://user-images.githubusercontent.com/63829204/106238637-8c88b600-6244-11eb-80c0-09023ab3bb29.png"></p>
+<ul>
+<li>시작화면에서 '장애인 추천 운동'을 터치하고, 유산소 운동을 완료하는 상황까지의 과정이다. 운동 종류는 6개 중에 1개만 넣었다.</li>
+</ul>
+<h3 id="3">3. 내 운동<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p><img width="24.5%" alt="스크린샷 2021-01-29 오후 5 06 39" src="https://user-images.githubusercontent.com/63829204/106248517-74209780-6254-11eb-8e3e-23eb8f9e1b0c.png">
+<img width="25.05%" alt="스크린샷 2021-01-29 오후 5 09 25" src="https://user-images.githubusercontent.com/63829204/106248740-bf3aaa80-6254-11eb-8bf8-36c83c4d862f.png">
+<img width="25.3%" alt="스크린샷 2021-01-29 오후 5 41 28" src="https://user-images.githubusercontent.com/63829204/106252129-3eca7880-6259-11eb-8158-c18a39a2b84a.png"></p>
+<ul>
+<li>시작화면에서  '내 운동'을 터치하고, 운동 리스트에서 운동들을 선택하여 나만의 루틴을  만들어 운동을 할 수 있다.</li>
+<li>각 운동을 터치하면, 팜업창으로 운동의 설명을 볼 수 있다.</li>
+</ul>
+<h3 id="4_2">4. 프로필<a class="headerlink" href="#4_2" title="Permanent link">&para;</a></h3>
+<p><img width="25%" alt="스크린샷 2021-01-29 오후 5 33 20" src="https://user-images.githubusercontent.com/63829204/106251239-17bf7700-6258-11eb-9efa-4cfa138c287f.png">
+<img width="24.89%" alt="스크린샷 2021-01-29 오후 5 34 15" src="https://user-images.githubusercontent.com/63829204/106251363-37ef3600-6258-11eb-946c-74469e89a5f2.png">
+<img width="24.7%" alt="스크린샷 2021-01-29 오후 5 34 39" src="https://user-images.githubusercontent.com/63829204/106251404-450c2500-6258-11eb-9eee-a7be2caa76f2.png"></p>
+<ul>
+<li>프로필 화면에서 총 운동 횟수, 총 칼로리 소모량, 총 시간을 확인 할 수 있다.  </li>
+<li>이번주의 켈린더에 운동을 한 날과 안한 날, 오늘을 표시하며, 눈에 잘 띄는 색으로 정하였다. </li>
+<li>하단에는 오늘 한 운동의 리스트를 표시하며,  달력과 오늘 한 운동 리스트는 터치할 시 큰 화면으로도 볼 수 있다.</li>
+</ul>
+<h3 id="5_1">5. 실제 구현된 화면<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>전체적인 색감은 안정을 주는 색감인 블루 계열로 통일하였다.
+<img width="25%" alt="스크린샷 2021-02-21 오후 8 50 50" src="https://user-images.githubusercontent.com/63829204/108624174-7f976500-7486-11eb-8817-982129b96a57.png"></p>
+</li>
+<li>
+<p>운동을 시작하기 위한 홈 화면이다. 하체 장애인 분들을 위한 '휠체어 운동'과 노인 분들을 위한 '노인 운동' 버튼이 위치하고 있다. </p>
+</li>
+<li>휠체어 운동과 노인 운동은 같은 플로우로 이루어 져 있으며, 각 대상에 맞게 운동을 구성하였다.</li>
+<li>
+<p>운동 대상 선택 - 운동 종류 선택 - 운동 리스트 - 운동 - 휴식 - 운동 - 휴식 - ... - 완료화면 으로 구성되어 있다.
+<img width="25%" alt="스크린샷 2021-02-21 오후 8 51 24" src="https://user-images.githubusercontent.com/63829204/108624183-9047db00-7486-11eb-9e05-7e62997b391d.png"></p>
+</li>
+<li>
+<p>운동의 종류를 선택하는 화면이다. 유산소, 유연성, 근력 중에서 하나를 선택 할 수 있다.
+<img width="25%" alt="스크린샷 2021-02-21 오후 8 51 53" src="https://user-images.githubusercontent.com/63829204/108624190-a0f85100-7486-11eb-9ee7-403c39f9a8ee.png"></p>
+</li>
+<li>
+<p>운동 리스트를 보여주는 화면이다. 어떤 운동을 하는지 볼 수 있으며, 각 운동을 터치하였을 때의 상황은 추후 업데이트 할 예정이다.
+<img width="25%" alt="스크린샷 2021-02-21 오후 6 53 24" src="https://user-images.githubusercontent.com/63829204/108621461-14459700-7476-11eb-8f14-74dd1535cdc7.png">
+<img width="25%" alt="스크린샷 2021-02-21 오후 8 52 29" src="https://user-images.githubusercontent.com/63829204/108624203-b7061180-7486-11eb-817c-9359c5e5822c.png"></p>
+</li>
+<li>
+<p>화면 상단에 동영상이 자동 재생, 무한반복된다. 최종 디자인은 아이폰의 화면이며, 동영상의 위치는 동일하다.</p>
+</li>
+<li>몇 번(혹은 몇 초) 반복하면 되는지 중앙에 표시되어 있으며, 그 우측에는 제한 시간이 나타나 있다. </li>
+<li>
+<p>제한 시간이 경과하면 휴식시간으로 자동으로 넘어가며, 완료 버튼을 누르면 바로 넘어간다.
+<img width="25%" alt="스크린샷 2021-02-21 오후 8 54 22" src="https://user-images.githubusercontent.com/63829204/108624228-fa608000-7486-11eb-8f16-b2f9a0267f92.png"></p>
+</li>
+<li>
+<p>휴식 화면 이다. 다음 운동의 종류와 운동 사진이 나타나 있다.</p>
+</li>
+<li>휴식 제한시간이 경과하면 자동으로 다음 운동으로 넘어간다. 넘어가기 버튼을 누르면 바로 넘어갈 수 있다.</li>
+</ul>
+<p><img width="25%" alt="스크린샷 2021-02-21 오후 8 54 59" src="https://user-images.githubusercontent.com/63829204/108624242-106e4080-7487-11eb-8109-3a2d59c80970.png"></p>
+<ul>
+<li>완료화면이다. 수행한 운동의 리스트를 보여준다.</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../goodjob/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              GoodJob
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../markmakers/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              MarkMaker
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2015- HGUSIGHT
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/HGUMOA/MOA" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="../../javascripts/all.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

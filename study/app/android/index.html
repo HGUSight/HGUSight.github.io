@@ -1,0 +1,1305 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="HGUSight">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+    
+    
+      
+        <title>안스_서버통신 - HGUSight</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/gradient-dark.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="light-blue" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="HGUSight" class="md-header__button md-logo" aria-label="HGUSight" data-md-component="logo">
+      
+  <img src="../../../assets/images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HGUSight
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              안스_서버통신
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/HGUSight/HGUSight.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HGUSight
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="HGUSight" class="md-nav__button md-logo" aria-label="HGUSight" data-md-component="logo">
+      
+  <img src="../../../assets/images/favicon.png" alt="logo">
+
+    </a>
+    HGUSight
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/HGUSight/HGUSight.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HGUSight
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        프로젝트팀
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="프로젝트팀" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          프로젝트팀
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/thelight/" class="md-nav__link">
+        TheLight
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/goodjob/" class="md-nav__link">
+        GoodJob
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/opal/" class="md-nav__link">
+        OPAL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/markmakers/" class="md-nav__link">
+        MarkMaker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/vivid/" class="md-nav__link">
+        Vivid
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        리크루팅
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="리크루팅" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          리크루팅
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../recruit/poster/" class="md-nav__link">
+        시선 포스터
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        방학합숙 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="방학합숙 스터디" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          방학합숙 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        앱개발 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="앱개발 스터디" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          앱개발 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          안스_서버통신
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        안스_서버통신
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    결론:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../db/" class="md-nav__link">
+        디비_구축
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flask/" class="md-nav__link">
+        플라스크서버
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws/" class="md-nav__link">
+        AWS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend/" class="md-nav__link">
+        Frontend
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        Git 협업
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debug/" class="md-nav__link">
+        디버깅
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        깃허브 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="깃허브 스터디" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          깃허브 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github/git1/" class="md-nav__link">
+        Git 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github/git2/" class="md-nav__link">
+        Git 2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github/git3/" class="md-nav__link">
+        Git 3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github/git4/" class="md-nav__link">
+        Git 4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github/git5/" class="md-nav__link">
+        Git 5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github/git6/" class="md-nav__link">
+        Git 6
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../github/git7/" class="md-nav__link">
+        Git 7
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        알고리즘 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="알고리즘 스터디" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          알고리즘 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day1/" class="md-nav__link">
+        Day1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day2/" class="md-nav__link">
+        Day2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day3/" class="md-nav__link">
+        Day3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day4/" class="md-nav__link">
+        Day4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day5/" class="md-nav__link">
+        Day5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day6/" class="md-nav__link">
+        Day6
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day7/" class="md-nav__link">
+        Day7
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day8/" class="md-nav__link">
+        Day8
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        시선자료
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="시선자료" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          시선자료
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/rule/" class="md-nav__link">
+        시선회칙
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        문서 작성 법
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="문서 작성 법" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          문서 작성 법
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../write/markdown/" class="md-nav__link">
+        파일적는 방법
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../write/baseof/" class="md-nav__link">
+        Markdown base
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    결론:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/HGUSight/HGUSight.github.io/edit/master/docs/study/app/android.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>안스_서버통신</h1>
+                
+                <h4 id="okhttp">OKHTTP란?<a class="headerlink" href="#okhttp" title="Permanent link">&para;</a></h4>
+<p>OKHTTP는 안드로이드에서 서버와 통신을 할수 있게 해주는 오픈소스 입니다.</p>
+<blockquote>
+<p><a href="https://square.github.io/okhttp/">OKHTTP공식홈페이지</a></p>
+<p>공식 홈페이지에 나와있는 내용을 기반으로 진행될것이다.</p>
+</blockquote>
+<p>홈페이지에 있는 내용을 이해하기 위해서 먼저 꼭 알아야할 내용이 있다.</p>
+<h4 id="rest-api">REST API란?<a class="headerlink" href="#rest-api" title="Permanent link">&para;</a></h4>
+<p>일종에 URL을 만들때의 규칙이다. 정말 자세한 내용은 아래 REST_API를 클릭하면 볼수 있다.</p>
+<p>이중 우선 꼭 알아야하는 GET, POST, PUT, DELETE에 대해서 알아보자.</p>
+<ul>
+<li>REST API</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">종류</th>
+<th align="center">한마디로</th>
+<th align="center">역할</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">GET</td>
+<td align="center">show</td>
+<td align="center">어떤 변수의 값을 실어 보내 요청하면, 거기에 해당하는 내용을 db에서 찾아서 보여줌</td>
+</tr>
+<tr>
+<td align="center">POST</td>
+<td align="center">create</td>
+<td align="center">어떤 등록하고 싶은 내용을 실어 보내면, 그 내용을 db에 등록해줌</td>
+</tr>
+<tr>
+<td align="center">PUT</td>
+<td align="center">update</td>
+<td align="center">어떤 변수의 값과, 그 변수에 해당하는 내용중 바꾸고 싶은 내용을 보내면 그 내용으로 db가 업데이트됨</td>
+</tr>
+<tr>
+<td align="center">DELETE</td>
+<td align="center">remove</td>
+<td align="center">어떤 변수의 값을 실어 보내 그 변수에 해당하는 내용을 db에서 삭제함</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><a href="https://meetup.toast.com/posts/92">REST_API</a></p>
+</blockquote>
+<h4 id="json">JSON란?<a class="headerlink" href="#json" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>간단히 생각하면 배열이나 딕셔너리같은 자료형이다. 주로 정보를 저장하기 위해 사용된다.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>{
+&quot;이름&quot; : &quot;홍길동&quot;,
+&quot;나이&quot; : 22,
+&quot;특기&quot; : [&quot;배구&quot;, &quot;야구&quot;]
+}
+</code></pre></div>
+<p>이런식으로 저장된 json파일의 경우, 이 파일에 접근해'이름'을 통해 홍길동을 얻을수 있다.</p>
+<p>자 이제 기본적으로 공식 문서를 이해하기 위한 준비가 끝났다. 이제 공식 문서의 코드를 살펴보자.</p>
+<p><strong>GET URL</strong></p>
+<div class="highlight"><pre><span></span><code>OkHttpClient client = new OkHttpClient();
+
+String run(String url) throws IOException {
+  Request request = new Request.Builder()
+      .url(url)
+      .build();
+
+  try (Response response = client.newCall(request).execute()) {
+    return response.body().string();
+  }
+}
+</code></pre></div>
+<p>GET은 앞에서 배운것에 의하면, **어떤 변수의 값을 실어보내, 거기에 해당하는 내용을 db에서 찾아보는 역할**을 한다고 했다.</p>
+<ul>
+<li>
+<p>먼저 변수를 요청할 Client 객체를 만든다. 그리고 run이라는 함수 안에 보면 request를 어디에 어떻게 할지 저의해준다.</p>
+</li>
+<li>
+<p>url이 바로 어디로 변수를 보내는지 이고, 이 url에 해당하는 정보를 받을수 있다. 간단하게 생각하면, 어딘가로 내가 필요한 정보를 주세요 라고 요청하는 과정이다.</p>
+</li>
+<li>
+<p>client.newCall(request).execute()을 통해 요청하고,</p>
+</li>
+<li>
+<p>그 요청의 결과는 response.body()에 담겨져서 온다.</p>
+</li>
+</ul>
+<p><strong>POST URL</strong></p>
+<div class="highlight"><pre><span></span><code>public static final MediaType JSON
+    = MediaType.get(&quot;application/json; charset=utf-8&quot;);
+
+OkHttpClient client = new OkHttpClient();
+
+String post(String url, String json) throws IOException {
+  RequestBody body = RequestBody.create(json, JSON);
+  Request request = new Request.Builder()
+      .url(url)
+      .post(body)
+      .build();
+  try (Response response = client.newCall(request).execute()) {
+    return response.body().string();
+  }
+}
+</code></pre></div>
+<p>POST는 앞에서 배운것에 의하면, **어떤 등록하고 싶은 내용을 실어 보내면, 그 내용을 db에 등록해줌**이라고 했다.</p>
+<ul>
+<li>위와 비슷하게, 요청할 client 객체를 하나 만들어준다.</li>
+<li>그리고 이번에는 어떤 등록하고 싶은 내용을 담아야한다. 이 내용은 json이라는 자료구조 형태로 만들어서 RequestBody.create에 넣어주고, 등록하고싶은 내용을 바디에 담아준다.</li>
+<li>이제 request.builder로 어디로, 어떤 정보를 담아 보낼지 결정한다.</li>
+<li>client.newCall(request).execute()을 통해 요청하고,</li>
+<li>그 요청의 결과는 response.body()에 담겨져서 온다.</li>
+</ul>
+<p>이렇게 보면 사실 아주 간단한데, 많은 사람들이 사전지식이 부족해 서버 연결에 실패하고 겁을 먹고는 한다.</p>
+<p>이제 한번 실습을 해보자.</p>
+<ol>
+<li>
+<p>먼저 첫번째로는 안드로이드 스튜디오를 키고, 프로젝트를 하나 생성해준다. 실행시키면 helloworld가 나올것이다.</p>
+</li>
+<li>
+<p>Manifest 파일에 아래 코드를 추가해 준다.</p>
+</li>
+</ol>
+<blockquote>
+<p>⬇ 추가! ⬇</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+</code></pre></div>
+<p><img alt="internet_permission" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbLDVbf%2FbtqFHbIvwkB%2F598DINnJvDiY66GKB8vWGk%2Fimg.png" /></p>
+<p>3.build.gradle(Module:app)파일에 아래 두라인을 복사해서 추가 한다.</p>
+<blockquote>
+<p>⬇ 추가! ⬇</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>implementation(&quot;com.squareup.okhttp3:okhttp:4.8.0&quot;)
+testImplementation(&quot;com.squareup.okhttp3:mockwebserver:4.8.0&quot;)
+</code></pre></div>
+<p><img alt="library" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbhGJjI%2FbtqFHps1tCV%2Fwuc74zT13oCyY3Qf8KjmDk%2Fimg.png" /></p>
+<p>저장하고 sync now 누르기. OKHTTP 라이브러리를 추가해주는 과정이다.</p>
+<p>4.이제 서버와 통신할 수 있는 코드를 안드로이드 스튜디오에 OKHTTP를 이용해서 짜보자. 아래의 코드를 복사해서 자바에 붙인다. 빨간줄이 잔뜩 뜨면, 거기에 마우스를 대고 옵션+앤터를 누르면 빨간줄이 사라지는걸 볼수 있다. import를 하지 않아서 인데, 안스는 옵션+엔터로 자동으로 추가해준다.</p>
+<blockquote>
+<p>⬇ 추가! ⬇</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final String urls = &quot;http://0.0.0.0:60000/&quot;;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        sendServer();
+    }
+
+
+    public void sendServer(){
+        class sendData extends AsyncTask&lt;Void, Void, String&gt; {
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+            }
+
+            @Override
+            protected void onProgressUpdate(Void... values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected void onCancelled(String s) {
+                super.onCancelled(s);
+            }
+
+            @Override
+            protected void onCancelled() {
+                super.onCancelled();
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    JSONObject jsonInput = new JSONObject();
+                    jsonInput.put(&quot;creator_email&quot;,  &quot;21800007@handong.edu&quot;);
+                    jsonInput.put(&quot;creator_name&quot;,  &quot;yebin.kang&quot;);
+
+                    RequestBody reqBody = RequestBody.create(
+                            MediaType.parse(&quot;application/json; charset=utf-8&quot;),
+                            jsonInput.toString()
+                    );
+
+                    Request request = new Request.Builder()
+                            .post(reqBody)
+                            .url(urls)
+                            .build();
+
+                    Response responses = null;
+                    responses = client.newCall(request).execute();
+                    System.out.println(responses.body().string());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        sendData sendData = new sendData();
+        sendData.execute();
+    }
+
+}
+</code></pre></div>
+<p>5.이제 간단한 코드를 테스트 하기 위해, 아주 아주 간단한 flask 로컬 서버를 하나 열어준다.</p>
+<p>먼저 pip, virtualenv, flask는 기본적으로 설치 되어 있어야 한다. 없다면 아래 블로그들에서 설치부터 하자.</p>
+<blockquote>
+<p><a href="https://dydrlaks.medium.com/mac-os-flask-개발환경-setting-aa5dee7fe27f">플라스크설치</a></p>
+<p><a href="https://dydrlaks.medium.com/flask-hello-world-출력하기-17459c8e97ef">플라스크더공부하기</a></p>
+</blockquote>
+<p>설치가 끝났다면 바탕화면에 flask라는 폴더를 만들고 그 폴더로 들어가 아래 명령어를 실행하자.</p>
+<blockquote>
+<p>⬇ 추가! ⬇</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>$ cd flask
+$ virtualenv --python=python3 venv
+$ source venv/bin/activate
+</code></pre></div>
+<p>이제 flask 폴더안에 app.py를 만들고, 아래 코드를 추가해준다.</p>
+<blockquote>
+<p>⬇ 추가! ⬇</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>from flask import Flask, make_response, jsonify, request
+app = Flask(__name__)
+
+
+@app.route(&#39;/&#39;)
+def hello():
+    data = request.get_json()
+    print(data)
+    return jsonify({&#39;data&#39;: data})
+
+
+if __name__ == &#39;__main__&#39;:
+    app.run(host=&#39;0.0.0.0&#39;, port=60000)
+</code></pre></div>
+<blockquote>
+<p>⬇ 실행 ⬇</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>python app.py
+</code></pre></div>
+<p>이제 아래와 같은 화면이 나온다면, 정상적으로 실행이 된것이다.</p>
+<p><img alt="app.py" src="/../assets/images/app.png" /></p>
+<p>지금 로컬호스트에서 서버가 정상적으로 실행되고 있다는 것이다.</p>
+<p>6.이제 서버를 켰으니 안드로이드 스튜디오에서 우리가 만든 코드를 한번 테스트해보자.</p>
+<p>다시 프로젝트를 실행시킨다. 그리고 실행버튼을 눌러보자.</p>
+<p>서버를 보면 서버에 무언가 도착한것을 볼수 있다. 아마 json파일 정보가 print되게 되어 있을 것이다.</p>
+<p>안드로이드 스튜디오 터미널에도 보면, 무언가 도착해져 있다.</p>
+<p>data로 방금 보낸 내용을 json화 된 결과값을 볼수 있다.</p>
+<h2 id="_1">결론:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>지금 우리가 해본것은 안드로이드 스튜디오에서 내 이메일과 이름을 파이썬 로컬 플라스크 서버로 보내고, 플라스크 서버에서 받은 값을 프린트 해보고, data:&lt;받은것&gt; 형태로 다시 돌려보내주면, 그 값을 안드로이드 스튜디오에서 프린트 해보았다</strong></p>
+<blockquote>
+<p>이걸 응용하면, 현실에서는.. 안드로이드 스튜디오에서 어떤 특정한 사용자 아이디를 서버에 보내면, 서버는 데이타 베이스에서 그 사용자 아이디에 해당하는 테이블을 찾고, 그 사용자 정보를 받아서 그 값을 안드로이드 스튜디오에 돌려주고, 그 정보를 이용해 어플을 이용하는 사용자에게 띄울수 있겠죠?</p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../../recruit/poster/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              시선 포스터
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../db/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              디비_구축
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2015- HGUSIGHT
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/HGUMOA/MOA" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+      
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="../../../javascripts/all.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

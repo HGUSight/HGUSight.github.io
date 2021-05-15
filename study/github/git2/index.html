@@ -1,0 +1,1433 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="HGUSight">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+    
+    
+      
+        <title>Git 2 - HGUSight</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/gradient-dark.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="light-blue" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-github-repository" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="HGUSight" class="md-header__button md-logo" aria-label="HGUSight" data-md-component="logo">
+      
+  <img src="../../../assets/images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HGUSight
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/HGUSight/HGUSight.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HGUSight
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="HGUSight" class="md-nav__button md-logo" aria-label="HGUSight" data-md-component="logo">
+      
+  <img src="../../../assets/images/favicon.png" alt="logo">
+
+    </a>
+    HGUSight
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/HGUSight/HGUSight.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    HGUSight
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        프로젝트팀
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="프로젝트팀" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          프로젝트팀
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/thelight/" class="md-nav__link">
+        TheLight
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/goodjob/" class="md-nav__link">
+        GoodJob
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/opal/" class="md-nav__link">
+        OPAL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/markmakers/" class="md-nav__link">
+        MarkMaker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../project/vivid/" class="md-nav__link">
+        Vivid
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        리크루팅
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="리크루팅" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          리크루팅
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../recruit/poster/" class="md-nav__link">
+        시선 포스터
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        방학합숙 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="방학합숙 스터디" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          방학합숙 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        앱개발 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="앱개발 스터디" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          앱개발 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/android/" class="md-nav__link">
+        안스_서버통신
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/db/" class="md-nav__link">
+        디비_구축
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/flask/" class="md-nav__link">
+        플라스크서버
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/aws/" class="md-nav__link">
+        AWS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/frontend/" class="md-nav__link">
+        Frontend
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/backend/" class="md-nav__link">
+        Backend
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/git/" class="md-nav__link">
+        Git 협업
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app/debug/" class="md-nav__link">
+        디버깅
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        깃허브 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="깃허브 스터디" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          깃허브 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git1/" class="md-nav__link">
+        Git 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Git 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Git 2
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-github-repository" class="md-nav__link">
+    1. Github에서 Repository 삭제하는 방법
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-git" class="md-nav__link">
+    2. 있어보이게 Git 사용하기
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-branch" class="md-nav__link">
+    3. BRANCH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-remote-local-coflict-merge" class="md-nav__link">
+    4. remote와 local에서 생기는 coflict 해결하기 (merge)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git3/" class="md-nav__link">
+        Git 3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git4/" class="md-nav__link">
+        Git 4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git5/" class="md-nav__link">
+        Git 5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git6/" class="md-nav__link">
+        Git 6
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git7/" class="md-nav__link">
+        Git 7
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        알고리즘 스터디
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="알고리즘 스터디" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          알고리즘 스터디
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day1/" class="md-nav__link">
+        Day1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day2/" class="md-nav__link">
+        Day2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day3/" class="md-nav__link">
+        Day3
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day4/" class="md-nav__link">
+        Day4
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day5/" class="md-nav__link">
+        Day5
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day6/" class="md-nav__link">
+        Day6
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day7/" class="md-nav__link">
+        Day7
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/day8/" class="md-nav__link">
+        Day8
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        시선자료
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="시선자료" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          시선자료
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/rule/" class="md-nav__link">
+        시선회칙
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        문서 작성 법
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="문서 작성 법" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          문서 작성 법
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../write/markdown/" class="md-nav__link">
+        파일적는 방법
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../write/baseof/" class="md-nav__link">
+        Markdown base
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-github-repository" class="md-nav__link">
+    1. Github에서 Repository 삭제하는 방법
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-git" class="md-nav__link">
+    2. 있어보이게 Git 사용하기
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-branch" class="md-nav__link">
+    3. BRANCH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-remote-local-coflict-merge" class="md-nav__link">
+    4. remote와 local에서 생기는 coflict 해결하기 (merge)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/HGUSight/HGUSight.github.io/edit/master/docs/study/github/git2.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Git 2</h1>
+                
+                <h4 id="_1">지각/과제에 대한 공지<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<h4 id="2359-1">오늘 23:59 전까지 안올리면 과제 점수 -1<a class="headerlink" href="#2359-1" title="Permanent link">&para;</a></h4>
+<h4 id="x">질문에 답변 제일 많이 한 사람 과제 x<a class="headerlink" href="#x" title="Permanent link">&para;</a></h4>
+<hr />
+<ul>
+<li>
+<p>merge 충돌에 대해서도 알아야 합니다. 여러부운 ~</p>
+</li>
+<li>
+<p>github 기본 branch 설정방법이 있습니다 여러부운 ~</p>
+</li>
+</ul>
+<hr />
+<h3 id="1-github-repository">1. Github에서 Repository 삭제하는 방법<a class="headerlink" href="#1-github-repository" title="Permanent link">&para;</a></h3>
+<p>레포지토리 <strong>세팅</strong> 에서 삭제할 수 있다.</p>
+<p>여러분의 정결한 github 유지와  </p>
+<p>오늘 스터디를 깔끔하게 진행하기 위해서 지난번에 만든 remote Repository와 바탕화면의 local Repository 모두 삭제해주세요 :)</p>
+<h3 id="2-git">2. 있어보이게 Git 사용하기<a class="headerlink" href="#2-git" title="Permanent link">&para;</a></h3>
+<p>alias : 가명</p>
+<ul>
+<li>git 대신 g로 설정하기  </li>
+</ul>
+<p>⬇ EXECUTE! ⬇
+<div class="highlight"><pre><span></span><code>$ vi ~/.bash_profile
+
+//1. vi editor로 열린 파일 마지막 줄에 아래 코드 추가
+
+alias g=&quot;git&quot;
+
+//2. :wq 입력하고 빠져나오기
+//3. 터미널 껐다키기
+
+$ g --version
+</code></pre></div></p>
+<ul>
+<li>git 명령어 단축시키기  </li>
+</ul>
+<p>⬇ EXECUTE! ⬇
+<div class="highlight"><pre><span></span><code>g config --global alias.cm &quot;comit -m&quot;
+</code></pre></div></p>
+<p>여러분을 위해 주는 코드 ;)
+<div class="highlight"><pre><span></span><code>[alias]
+        i = init
+        s = status
+        sb = status -s -b
+        cm = commit -m
+        a = add --all
+        l = log --oneline
+        lg = log --oneline --graph --decorate
+        rao = remote add origin
+        cl = clone
+        ps = push
+        pl = pull
+        psom = push origin master
+        plom = pull origin master
+        b = branch
+        bd = branch -d
+        m = merge
+        co = checkout
+        cob = checkout -b
+</code></pre></div></p>
+<ul>
+<li>alias 내용정리</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">alias</th>
+<th align="center">원래 명령어</th>
+<th align="center">완성된 명령어</th>
+<th align="center">의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>i</code></td>
+<td align="center"><code>init</code></td>
+<td align="center"><code>g i</code></td>
+<td align="center">git 레포지토리 관리를 시작하도록 한다.</td>
+</tr>
+<tr>
+<td align="center"><code>s</code></td>
+<td align="center"><code>status</code></td>
+<td align="center"><code>g s</code></td>
+<td align="center">레포지토리 상태를 본다.</td>
+</tr>
+<tr>
+<td align="center"><code>sb</code></td>
+<td align="center"><code>satuts -s -b</code></td>
+<td align="center"><code>g sb</code></td>
+<td align="center">레포지토리 상태를 간략하게 본다.</td>
+</tr>
+<tr>
+<td align="center"><code>cm</code></td>
+<td align="center"><code>commit -m</code></td>
+<td align="center"><code>g cm "&lt;MESSAGE&gt;"</code></td>
+<td align="center">커밋을 한다.</td>
+</tr>
+<tr>
+<td align="center"><code>a</code></td>
+<td align="center"><code>a --all</code></td>
+<td align="center"><code>g a</code></td>
+<td align="center">추가되거나 변경된 파일을 스테이징 한다.</td>
+</tr>
+<tr>
+<td align="center"><code>l</code></td>
+<td align="center"><code>log --oneline</code></td>
+<td align="center"><code>g l</code></td>
+<td align="center">git 의 커밋 기록을 한줄씩 출력한다.</td>
+</tr>
+<tr>
+<td align="center"><code>lg</code></td>
+<td align="center"><code>log --oneline --graph --decorate</code></td>
+<td align="center"><code>g lg</code></td>
+<td align="center">git 의 커밋 기록을 그래프로 출력한다.</td>
+</tr>
+<tr>
+<td align="center"><code>rao</code></td>
+<td align="center"><code>remote add origin</code></td>
+<td align="center"><code>g rao &lt;REMOTE&gt;</code></td>
+<td align="center">원격 레포지토리를 추가한다.</td>
+</tr>
+<tr>
+<td align="center"><code>cl</code></td>
+<td align="center"><code>clone</code></td>
+<td align="center"><code>g cl &lt;URL&gt;</code></td>
+<td align="center">원격 레포지토리를 복제해 온다.</td>
+</tr>
+<tr>
+<td align="center"><code>ps</code></td>
+<td align="center"><code>push</code></td>
+<td align="center"><code>g ps &lt;NAME&gt; &lt;BRANCH&gt;</code></td>
+<td align="center">원격 레포지토리로 푸쉬한다.</td>
+</tr>
+<tr>
+<td align="center"><code>pl</code></td>
+<td align="center"><code>pull</code></td>
+<td align="center"><code>g pl &lt;NAME&gt; &lt;BRANCH&gt;</code></td>
+<td align="center">원격 레포지토리를 가져온다.</td>
+</tr>
+<tr>
+<td align="center"><code>psom</code></td>
+<td align="center"><code>push origin master</code></td>
+<td align="center"><code>g psom</code></td>
+<td align="center">원격 레포지토리 origin에 master를 푸쉬한다.</td>
+</tr>
+<tr>
+<td align="center"><code>plom</code></td>
+<td align="center"><code>pull origin master</code></td>
+<td align="center"><code>g plom</code></td>
+<td align="center">원격 레포지토리 origin에서 master로 가져온다.</td>
+</tr>
+<tr>
+<td align="center"><code>b</code></td>
+<td align="center"><code>branch</code></td>
+<td align="center"><code>g b &lt;BRANCH&gt;</code></td>
+<td align="center">브랜치를 생성한다.</td>
+</tr>
+<tr>
+<td align="center"><code>bd</code></td>
+<td align="center"><code>branch -d</code></td>
+<td align="center"><code>g bd &lt;BRANCH&gt;</code></td>
+<td align="center">브랜치를 삭제한다.</td>
+</tr>
+<tr>
+<td align="center"><code>m</code></td>
+<td align="center"><code>merge</code></td>
+<td align="center"><code>g m</code></td>
+<td align="center">작업이 완료된 브랜치를 병합한다.</td>
+</tr>
+<tr>
+<td align="center"><code>co</code></td>
+<td align="center"><code>chechout</code></td>
+<td align="center"><code>g o &lt;BRANCH&gt;</code></td>
+<td align="center">브랜치로 이동한다.</td>
+</tr>
+<tr>
+<td align="center"><code>cob</code></td>
+<td align="center"><code>chechout -b</code></td>
+<td align="center"><code>g cob &lt;BRANCH&gt;</code></td>
+<td align="center">브랜치를 생성함과 동시에 이동한다.</td>
+</tr>
+</tbody>
+</table>
+<p><del>MAC에서만 해봐서 Win에서 안될수도...</del></p>
+<hr />
+<h3 id="3-branch">3. BRANCH<a class="headerlink" href="#3-branch" title="Permanent link">&para;</a></h3>
+<p>프로젝트를 진행하면 새로운 기능을 추가할 때 그 기능이 전체 프로젝트와 호환되는지 알 수 없습니다. 개인 프로젝트라면 상관 없지만 함께 하는 프로젝트라면 걱정이 시작됩니다. Git 이 없을 때에는 이렇게 했습니다. 프로젝트를 통채로 복사하고 새로운 기능을 추가하고 호환되는지 충분히 검증한 다음에 원래의 레포지토리에 새로운 기능을 옮깁니다.</p>
+<p>하지만 Git 은 이러한 과정을 자동화시켜주고 로그 기록으로 남기고 최악의 경우 복원하는 기능까지 제공합니다. 이것이 Git 의 Branching 기능입니다. 평행세계를 만드는 것입니다. 그리고 원래의 세계에서 평행세계로 넘어가서 그 세계에서 마음껏 실험적인 행동을 자행하는 것이죠. 그 평행세계가 바로 Branch 입니다.</p>
+<p>Git 은 최대한 Branch 를 자주만들고 master 브랜치로 병합하라고 권장합니다. 저도 Branch 를 만들고 master 브랜치에 병합하는 습관 을 평소에 들이라고 권고하고 싶습니다. 왜냐하면 Git Branching 기능으로 여러분의 개발 과정이 매우 매우 안정적으로 바뀔 것이기 때문입니다.</p>
+<h4 id="_2">브랜치란?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>그렇다면 브랜치란 대체 무엇인가요? 브랜치란 포인터입니다. 그러면 그 포인터는 무엇을 포인팅하고 있나요? 바로 커밋들을 포인팅하고 있습니다. Git 은 기본 브랜치로 master 브랜치를 갖고 있는데 이 master 브랜치는 언제나 마지막 커밋을 포인팅하고 있습니다. 실제로 커밋을 할 때마다 master 브랜치가 자동으로 마지막 커밋으로 포인팅을 변경해주고 있던 겁니다.</p>
+<blockquote>
+<p>엄밀히 말하면 <code>HEAD</code> 포인터가 포인팅하고 있는 브랜치는 커밋을 할 때마다 자동으로 마지막 커밋으로 이동하는 것입니다. 아래의 내용을 읽으면 자연히 이해할 수 있을 겁니다.</p>
+</blockquote>
+<h4 id="_3">브랜치 생성<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>그러면 이제 말로만 하지말고 직접 몸으로 부딪혀보면서 브랜치를 느껴보겠습니다. 브랜치란 포인터라고 했으므로 브랜치를 생선하는 것은 포인터를 만드는 것입니다.</p>
+<p>실습하고 싶은 분은 실습하고 싶은 다음 명령어로 Git 레포지토리를 하나 만들어주세요.</p>
+<p>⬇ EXECUTE! ⬇</p>
+<div class="highlight"><pre><span></span><code>$ mkdir branch-test
+$ cd branch-test
+$ g i
+$ touch main.c
+$ v main.c
+</code></pre></div>
+<p>그리고 main.c 에 다음과 같은 코드를 입력하고 저장하고 vim 을 종료하세요.</p>
+<div class="highlight"><pre><span></span><code>void main(){
+  puts(&quot;what is branch?&quot;);
+}
+</code></pre></div>
+<p>그리고 다음 명령어로 스테이징 후 커밋해주세요.</p>
+<p>⬇ EXECUTE! ⬇</p>
+<div class="highlight"><pre><span></span><code>$ g a
+$ g cm &quot;main.c&quot;
+</code></pre></div>
+<p>이제 실제로 브랜치를 생성해보겠습니다.</p>
+<ul>
+<li>
+<p><code>git branch</code> : 현재 상주하고 있는 브랜치를 출력한다.</p>
+</li>
+<li>
+<p><code>git branch</code> <NAME> : 새로운 브랜치 <NAME> 을 만든다.</p>
+</li>
+</ul>
+<p>다음 명령어를 실행하여 <code>testing</code> 이라는 브랜치를 만드세요.</p>
+<p>⬇ EXECUTE! ⬇</p>
+<div class="highlight"><pre><span></span><code>$ g b testing
+</code></pre></div>
+<p>그러면 다음과 같이 현재 커밋을 두 개의 포인터 master 와 testing 이 포인팅하고 있습니다.</p>
+<p><img alt="branch1" src="https://camo.githubusercontent.com/afaa2d9da60a59930bf67a2b63406ca3fb35ceece72474c8579bac891a88ca63/68747470733a2f2f6769742d73636d2e636f6d2f626f6f6b2f656e2f76322f696d616765732f74776f2d6272616e636865732e706e67" /></p>
+<blockquote>
+<p>위 그림은 이전의 커밋이 2개 있다는 것을 보여주지만 실제로 현재 우리의 레포지토리에는 커밋은 하나밖에 없습니다!</p>
+</blockquote>
+<p>아니 그럼 현재 우리가 어떤 브랜치에 상주하고 있는지 대체 어떻게 알 수 있는 것인가요? 그것은 바로 <code>HEAD</code> 라는 특별한 포인터로 알 수 있습니다.</p>
+<ul>
+<li>
+<p><code>HEAD</code> : 현재 상주하고 있는 브랜치를 가르키는 포인터이다.</p>
+<ul>
+<li>아니 그럼 또 <code>HEAD</code> 는 어떻게 알 수 있는 것입니까? <code>zsh</code> 을 사용하고 있다면 다음과 같이 프롬프트 우측에 <code>HEAD</code> 가 가르키고 있는 브랜치, 즉 현재 상주하고 있는 브랜치를 알 수 있습니다.</li>
+</ul>
+<p><img alt="branch2" src="https://user-images.githubusercontent.com/16812446/82705303-67ee3e80-9cb2-11ea-9a66-096c35c4af92.png" /></p>
+<p>하지만 굳이 현재 상주하고 있는 브랜치를 직접 알아내야 한다면 <code>g b</code> 또는 <code>cat .git/HEAD</code> 를 입력하면 됩니다. <code>git branch</code> 명령이 현재 상주하고 있는 브랜치를 출력하므로 <code>g b</code> 가 <code>HEAD</code> 의 내용을 출력해주는 것입니다.</p>
+</li>
+</ul>
+<p>우리는 다음과 같이 아직 master 브랜치에 상주하고 있습니다.</p>
+<p><img alt="branch3" src="https://camo.githubusercontent.com/689dfe7473e0c85fcbb3d1b7093f68e8116225049875341c7754d0076686e54c/68747470733a2f2f6769742d73636d2e636f6d2f626f6f6b2f656e2f76322f696d616765732f686561642d746f2d6d61737465722e706e67" /></p>
+<h4 id="_4">브랜치 이주<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>이제 <code>testing</code> 브랜치로 이주해서 온갖 실험적이고 진취적인 행동을 마음껏 해야겠습니다. 그러려면 testing 브랜치로 이주해야만 합니다.</p>
+<ul>
+<li>
+<p>git checkout <NAME> : <NAME> 브랜치로 이주한다.</p>
+</li>
+<li>
+<p>git checkout -b <NAME> : <NAME> 브랜치를 생성함과 동시에 이주한다.</p>
+<ul>
+<li>이 형태가 가장 자주 쓰입니다. 즉 <code>g ob &lt;NAME&gt;</code> 이 자주 쓰입니다.
+다음 명령을 실행하여 브랜치를 이주하세요.</li>
+</ul>
+</li>
+</ul>
+<p>⬇ EXECUTE! ⬇</p>
+<p>그러면 다음과 같이 HEAD 포인터가 testing 을 가르키게 됩니다.</p>
+<p><img alt="barnch4" src="https://camo.githubusercontent.com/04c0b5678850c25e56df715d7393628c80e30437e27536cd4e9b2a174c8f91c8/68747470733a2f2f6769742d73636d2e636f6d2f626f6f6b2f656e2f76322f696d616765732f686561642d746f2d74657374696e672e706e67" /></p>
+<p>좋습니다! 이제 평행세계로 이동한 것입니다. 마음껏 실험적이고 파괴적인(?) 행동을 할 수 있습니다. main.c 함수의 코드에 매우 실험적이고 새로운 기능을 추가하고 싶다고 하겠습니다. 다음과 같이 코드를 고쳐주세요.</p>
+<div class="highlight"><pre><span></span><code>void message(){
+  puts(&quot;branch is good&quot;);
+}
+void main(){
+  message();
+}
+</code></pre></div>
+<p>새로 추가한 함수가 너무 실험적이고 진취적이어서 본래의 레포지토리와 호환되는지 알 수 없을 것만 같습니다. 하지만 이곳은 testing 브랜치니까 아무런 걱정이 안됩니다. 이제 코드를 저장하고 다음 명령을 실행하여 커밋하세요.</p>
+<p>⬇ EXECUTE! ⬇</p>
+<div class="highlight"><pre><span></span><code>$ g a 
+$ g cm &quot;new function&quot;
+</code></pre></div>
+<p>그러면 <code>testing</code> 브랜치는 다음과 같이 마지막 커밋을 포인팅하게 위하여 앞으로 나아갔지만 master 브랜치는 가만히 멈추어 있습니다.</p>
+<p><img alt="branch5" src="https://camo.githubusercontent.com/2c4cf7d27e134aaafbc0eb2cffc99f418bd0dc72b357dc1f1e3fbb677c8af920/68747470733a2f2f6769742d73636d2e636f6d2f626f6f6b2f656e2f76322f696d616765732f616476616e63652d74657374696e672e706e67" /></p>
+<p>이제 다음 명령어로 'master' 브랜치로 되돌아갑니다.</p>
+<p>⬇ EXECUTE! ⬇</p>
+<div class="highlight"><pre><span></span><code>$ g o master
+</code></pre></div>
+<p>그러면 다음과 같이 HEAD 가 master 로 옮겨갔습니다.</p>
+<p><img alt="branch6" src="https://camo.githubusercontent.com/d8be0565e7cd9c8354baeae33b29e71a1a74b5c64972a86c9bc2de03a5ff913d/68747470733a2f2f6769742d73636d2e636f6d2f626f6f6b2f656e2f76322f696d616765732f636865636b6f75742d6d61737465722e706e67" /></p>
+<div class="highlight"><pre><span></span><code>$ cat main.c
+</code></pre></div>
+<h4 id="1-fast-forward">브랜치 병합 시나리오 (1) - Fast-forward<a class="headerlink" href="#1-fast-forward" title="Permanent link">&para;</a></h4>
+<p>브랜치 병합은 두 가지 시나리오로 설명하겠습니다. 우선 첫번째 시나리오입니다.</p>
+<p>제 <code>testing</code> 브랜치에서 작업한 내용이 완전히 검증되었다고 하겠습니다. 그러면 남은 일은 <code>master</code> 브랜치에서 <code>testing</code> 브랜치를 병합하는 것입니다.</p>
+<ul>
+<li><code>git merge &lt;NAME&gt;</code> : <code>&lt;NAME&gt;</code> 브랜치를 현재의 브랜치로 병합한다.</li>
+</ul>
+<p>다음 명령어로 브랜치를 병합해주세요.</p>
+<p>⬇ EXECUTE! ⬇
+<div class="highlight"><pre><span></span><code>$ g m testing
+</code></pre></div></p>
+<p><img alt="branch7" src="https://user-images.githubusercontent.com/16812446/82707007-22cc0b80-9cb6-11ea-9c25-f82c6d669dad.png" /></p>
+<p>커밋 구조를 보면 master 브랜치가 testing 브랜치 바로 뒤에 있기 때문에 이 경우 Git 은 단순히 master 브랜치가 testing 브랜치가 포인팅하고 있는 커밋을 포인팅하게 합니다. 이것을 Fast-forward 병합이라고 합니다.</p>
+<h4 id="2-merge-conflict">브랜치 병합 시나리오 (2) - Merge Conflict<a class="headerlink" href="#2-merge-conflict" title="Permanent link">&para;</a></h4>
+<p>이제 다시 <code>testing</code> 브랜치에서 <code>master</code> 브랜치로 되돌아온 상황입니다. 이 경우 <code>master</code> 브랜치에서 <code>main.c</code> 를 다음과 같이 고쳤다고 하겠습니다.
+<div class="highlight"><pre><span></span><code>void main(){
+  puts(&quot;branch is good&quot;);
+}
+</code></pre></div></p>
+<p>그런 다음 다음 명령어로 스태이징을 하고 커밋을 합니다</p>
+<p>⬇ EXECUTE! ⬇
+<div class="highlight"><pre><span></span><code>$ g a  
+$ g cm &quot;new main&quot;
+</code></pre></div></p>
+<p>그러면 현재 상황은 다음과 같습니다.</p>
+<p><img alt="branch8" src="https://camo.githubusercontent.com/9d5044ac102d1a759a7b1fd06172344a3ddd7a90b109ee06cb9d4583d2a0b60a/68747470733a2f2f6769742d73636d2e636f6d2f626f6f6b2f656e2f76322f696d616765732f616476616e63652d6d61737465722e706e67" /></p>
+<p><code>master</code> 브랜치도 한 단계 더 나아갔습니다. 이 상황에서 다음의 명령어로 <code>testing</code> 브랜치를 병합합니다.</p>
+<p>⬇ EXECUTE! ⬇
+<div class="highlight"><pre><span></span><code>$ g s  
+</code></pre></div></p>
+<p>그러면 다음과 같이 both modified: 에 해당하는 파일 목록이 출력되는데 그 목록에는 main.c 가 포함되어 있음을 알 수 있습니다.</p>
+<p><img alt="branch9" src="https://user-images.githubusercontent.com/16812446/82708683-d387da00-9cb9-11ea-84a4-35a1a0779b19.png" /></p>
+<p>이 경우 <code>main.c</code> 를 열어서 병합 충돌이 발생한 코드를 확인해주어야 합니다. 실제로 <code>main.c</code> 를 열어보면 다음과 같이 되어있습니다.</p>
+<p><img alt="branch10" src="https://user-images.githubusercontent.com/16812446/82708726-eac6c780-9cb9-11ea-8327-bc41adb9ceba.png" /></p>
+<p>병합충돌이 발생하면 Git 은 위와 같이 자동으로 충돌 영역을 <code>=======</code> 로 구분해줍니다. 그리고 HEAD 가 가르키는 브랜치(<code>master</code>)의 변경사항과 testing 브랜치의 변경사항을 비교하여 보여줍니다. HEAD 에서 변경된 부분은 <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> 에서부터 <code>=======</code> 까지이고 <code>testing</code> 브랜치에서 변경된 부분은 <code>=======</code> 부터 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; testing</code> 까지입니다. 정말 편하죠?</p>
+<p>여러분은 두 변경사항 중 하나를 택하거나 둘 다 택하여 <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> 와 <code>=======</code> 그리고 <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> 를 없애주어야 합니다. 여기에서는 <code>main.c</code> 를 다음과 같이 고쳐주겠습니다.</p>
+<div class="highlight"><pre><span></span><code>void message(){
+  puts(&quot;branch is good.&quot;);
+}
+void main(){
+  message();
+}
+</code></pre></div>
+<p>그런 다음 다음 명령어로 다시 커밋해주면 병합이 최종적으로 완성됩니다.</p>
+<p>⬇ EXECUTE! ⬇
+<div class="highlight"><pre><span></span><code>$ g a
+$ g cm &quot;merge testing&quot;
+</code></pre></div></p>
+<h4 id="_5">브랜치 삭제<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>이제 마지막으로 병합이 완료된 testing 브랜치를 삭제하는 일만 남았습니다.</p>
+<ul>
+<li>
+<p><code>git branch -d &lt;NAME&gt;</code> : 병합이 완료된 <NAME> 브랜치를 삭제한다.</p>
+</li>
+<li>
+<p><code>git branch -D &lt;NAME&gt;</code> : 병합이 완료되지 않은 <NAME> 브랜치를 삭제한다.</p>
+</li>
+</ul>
+<p>다음 명령어로 <code>testing</code> 브랜치를 삭제하세요.</p>
+<p>⬇ EXECUTE! ⬇
+<div class="highlight"><pre><span></span><code>$ g bd testing
+</code></pre></div></p>
+<blockquote>
+<p>지금까지 Git Branching 을 매우 간단하게 알아보았는데, 나중에 <a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell</a> 을 통하여 Git Branching 의 더욱 강력한 기능을 추가 학습하시길 강력하게 추천합니다.</p>
+<p>VSCode 에서는 왼쪽 하단부의 Branch 를 클릭하거나 명령 팔레트에서 branch 를 검색하는 것으로 매우 쉽게 Branch 를 생성하거나 이주할 수 있습니다.</p>
+</blockquote>
+<h3 id="4-remote-local-coflict-merge">4. remote와 local에서 생기는 coflict 해결하기 (merge)<a class="headerlink" href="#4-remote-local-coflict-merge" title="Permanent link">&para;</a></h3>
+<ol>
+<li>[Local] 바탕화면에 git-conflict 폴더를 만드세요</li>
+<li>[Local] 해당 폴더를 git 레파지토리로 만드세요</li>
+<li>[Local] conflict.txt 텍스트 파일을 하나 만들고 "한재 형 고생 많아요" 라는 내용을 추가하고 "첫 커밋 한재형"로 커밋해주세요</li>
+<li>[Remote] github에도 git-conflict라는 이름으로 레파지토리를 하나 만들어 주세요. (기본 branch를 master로 설정해주세요)</li>
+<li>[Local] 해당 remote 레파지토리에 local 레파지토리 push 해주세요</li>
+<li>[Remote] github 주소에서 conflict.txt 내용을 "한재 형/오빠 고생많아요"로 바꾸고 "한재 형/오빠"로 커밋해주세요</li>
+<li>[Local] 이제 local git-conflict에서 conflict.txt 내용을 "한재 형/오빠/동생 고생많아요"로 고치고 "한재 형/오빠/동생"으로 커밋해주세요</li>
+<li>[Local] 이제 local 레파지토리의 내용을 remote로 push 해보세요
+<del>푸쉬에 실패할것입니다.</del>
+<strong>이게 conflict 이란 것입니다.</strong></li>
+<li>[Local] remote의 내용을 local에서 pull 합니다. 
+pull이 되기는 했지만 auto merging / CONFLICT 라는 메시지를 볼 것 입니다.</li>
+<li>[Local] local에서 conflict.txt 파일의 내용을 확인하고 "한재 형/오빠/동생 고생많아요" 내용으로 변경하고 "conflict 해결"로 코밋을 남겨주세요</li>
+<li>[Local]<code>git log --graph --oneline</code> 명령어로 커밋기록을 보고 이해해봅니다.</li>
+</ol>
+<blockquote>
+<p>위 과제는 <a href="https://backlog.com/git-tutorial/kr/intro/intro6_1.html">원숭이git</a> 사이트의 내용을 바탕으로 제작하였습니다.</p>
+</blockquote>
+<h4 id="-git">최종 제출 본 !! : 구글드라이브 - git 폴더에 사진 올리기<a class="headerlink" href="#-git" title="Permanent link">&para;</a></h4>
+<h4 id="_6">&lt;과제 없는 사람은 과제 없음 이라고 캡쳐해서 올리기&gt;<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<h4 id="_7">다들 행복한 주말 보내세요<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../git1/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Git 1
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../git3/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Git 3
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2015- HGUSIGHT
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/HGUMOA/MOA" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+      
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="../../../javascripts/all.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
